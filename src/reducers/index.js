@@ -1,8 +1,9 @@
 //index page for reducers
 import { combineReducers } from 'redux';
+import itemReducer from './itemReducer';
 
 const rootReducer = combineReducers({
-    //fill here
+    itemReducer
 });
 
-export default rootReducer;
+export default rootReducer

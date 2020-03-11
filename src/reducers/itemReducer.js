@@ -8,15 +8,17 @@ const data = [{
 const itemReducer = (state = data, action) => {
     switch(action.type) {
         case 'ADD_ENTRY': 
-            const entry = action.payload;
             return [
                 ...state,
                 {
-                    name: entry.name,
-                    price: entry.price,
-                    quantity: entry.quantity
+                    name: '',
+                    price: 0,
+                    quantity: 0
                 }
             ];
+        case 'HANDLE_ENTRY': 
+            const entry = action.payload;
+
 
         default:
             return state;

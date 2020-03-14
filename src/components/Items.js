@@ -10,6 +10,10 @@ function Item() {
         dispatch(addEntry());
     };
 
+    //TODO: create id function
+
+    //TODO: change iteration for object
+    
     const entry = items.map((recieptItem, idx) => {
         return (
             <div className='item-data'>

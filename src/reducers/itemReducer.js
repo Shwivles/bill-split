@@ -27,20 +27,23 @@ const itemReducer = (state = data, action) => {
                 }
             };
         case 'HANDLE_ENTRY': 
-            /*
-            const entry = action.payload.data;
+            //action.payload.data = [e.target.name, e.target.value]
+            const targetName = action.payload.data[0];
+            const targetData = action.payload.data[1];
             const id = action.payload.id;
-            const newEntry = {
-                name: entry.name,
-                price: entry.price,
-                quantity: entry.quantity
-            };
-            return {
-                ...state,
-                [id]: newEntry
-            };
-            */
-            //TODO: fix handle entry for search into data
+            const updatedData = state;
+            //keyNames = [name, price, quanityty]
+            const keyNames = Object.keys(updatedData[action.payload.id]);
+
+            if (targetName === keyNames[0]) {
+                updatedData[id].name = targetData;
+            } else if (targetName === keyNames[1]) {
+                updatedData[id].price = targetData;
+            } else if (targetName = keyNames[2]) {
+                updatedData[id].quantity = targetData;
+            }
+
+            return updatedData;
 
         default:
             return state;

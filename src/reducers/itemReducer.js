@@ -27,19 +27,19 @@ const itemReducer = (state = data, action) => {
                 }
             };
         case 'HANDLE_ENTRY': 
-            //action.payload.data = [e.target.name, e.target.value]
+            //action.payload.data = [string e.target.name, int e.target.value]
             const targetName = action.payload.data[0];
             const targetData = action.payload.data[1];
             const id = action.payload.id;
-            const updatedData = state;
+            const updatedData = {...state};
             //keyNames = [name, price, quanityty]
-            const keyNames = Object.keys(updatedData[action.payload.id]);
+            const keyNames = Object.keys(updatedData[id]);
 
             if (targetName === keyNames[0]) {
                 updatedData[id].name = targetData;
             } else if (targetName === keyNames[1]) {
                 updatedData[id].price = targetData;
-            } else if (targetName = keyNames[2]) {
+            } else if (targetName === keyNames[2]) {
                 updatedData[id].quantity = targetData;
             }
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import addEntry from '../actions';
-import handleEntry from '../actions';
+import { addEntry, handleEntry } from '../actions';
 
 function Item() { 
     const items = useSelector(state => state.itemReducer);
@@ -16,17 +15,15 @@ function Item() {
         dispatch(handleEntry(data, idx));
     }
 
-    const entry = () => {
-        Object.keys(items).map((itemKey) => {
-            return (
-                <div className='item-data'>
-                    <input type='text' onChange={(e) => handleChange(e, itemKey)} name='item-name' value={items[itemKey].name} key={itemKey} />
-                    <input type='number' onChange={(e) => handleChange(e, itemKey)} name='item-price' value={items[itemKey].price} min="0" key={itemKey}/>
-                    <input type='number' onChange={(e) => handleChange(e, itemKey)} name='item-quantity' value={items[itemKey].quantity} min='0' key={itemKey}/>
-                </div>   
-            );
-        });
-    }
+    const entry = Object.keys(items).map((itemKey) => {
+        return (
+            <div className='item-data'>
+                <input type='text' onChange={(e) => handleChange(e, itemKey)} name='name' value={items[itemKey].name} />
+                <input type='number' onChange={(e) => handleChange(e, itemKey)} name='price' value={items[itemKey].price} min="0" />
+                <input type='number' onChange={(e) => handleChange(e, itemKey)} name='quantity' value={items[itemKey].quantity} min='0' />
+            </div>   
+        );
+    });
 
     return(
         <div className='item-entry'>

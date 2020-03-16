@@ -3,12 +3,9 @@
 //Item entry actions
 export const addEntry = (id) => {
     return {
-        type: 'ADD_ENTRY',
-        payload: {
-            id
-        }
+        type: 'ADD_ENTRY'
     };
-};
+}
 
 export const handleEntry = (data, id) => {
     return {
@@ -18,5 +15,4 @@ export const handleEntry = (data, id) => {
             id
         }
     };
-
-};
+}

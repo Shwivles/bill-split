@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 //Styles
-import './index.css';
+import './styles/index.css';
 
 //Components
 import App from './App';

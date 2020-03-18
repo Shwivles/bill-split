@@ -39,3 +39,31 @@ export const deleteEntry = (id) => {
 
 
 //Profile actions
+
+//update the input of the profile entry
+export const updateInput = (input) => {
+    return {
+        type:'UPDATE_INPUT',
+        payload: {
+            input
+        }
+    };
+}
+
+//bring input into the list and reset input
+export const addProfile = () => {
+    return {
+        type: 'ADD_PROFILE'
+    };
+}
+
+//copy over an item from the item state into the profile
+export const addItemToProfile = (item, pId) => {
+    return {
+        type: 'ADD_PROFILE_ITEM',
+        payload: {
+            item,
+            pId
+        }
+    };
+}

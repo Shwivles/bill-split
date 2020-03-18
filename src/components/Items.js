@@ -21,8 +21,6 @@ function Item() {
                 <input type='text' onChange={(e) => handleChange(e, itemKey)} name='name' value={items[itemKey].name} />
                 <input type='number' onChange={(e) => handleChange(e, itemKey)} name='price' value={items[itemKey].price} min="0" />
                 <input type='number' onChange={(e) => handleChange(e, itemKey)} name='quantity' value={items[itemKey].quantity} min='0' />
-
-                <button onClick={() => dispatch(submitEntry(itemKey))}>Submit</button> {/*may be changed for adding to profile */}
                 <button onClick={() => dispatch(deleteEntry(itemKey))}>Delete</button>
             </div>   
         );

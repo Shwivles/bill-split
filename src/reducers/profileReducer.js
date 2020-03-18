@@ -2,22 +2,29 @@
 
 /* state example
 {
-    'jerry': [
-        {...},
-        {...}
-    ],
-    'kyla': [
-        {...}
-    ]
+    input: '',
+    selected: '',
+    profile: {
+        'jerry': [
+            {...},
+            {...}
+        ],
+        'kyla': [
+            {...}
+        ]
+    }
 }
-
-
 */
-const initialState = {};
+const initialState = {
+    input: '',
+    selected: '',
+    profile: []
+};
 
 const profileReducer = (state = initialState, action) => {
     switch(action.type) {
-
+        default:
+            return state;
     }
 }
 

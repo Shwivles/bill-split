@@ -26,6 +26,7 @@ const itemReducer = (state = data, action) => {
                     quantity: 0
                 }
             };
+
         case 'HANDLE_ENTRY': 
             //action.payload.data = [string e.target.name, int e.target.value]
             const targetName = action.payload.data[0];
@@ -44,6 +45,10 @@ const itemReducer = (state = data, action) => {
             }
 
             return updatedData;
+
+            //case 'SUBMIT_ENTRY': //may not be needed
+
+            //case 'DELETE_ENTRY':
 
         default:
             return state;

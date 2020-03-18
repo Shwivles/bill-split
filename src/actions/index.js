@@ -16,3 +16,26 @@ export const handleEntry = (data, id) => {
         }
     };
 }
+
+/*
+export const submitEntry = (id) => {
+    return {
+        type: 'SUMBIT_ENTRY',
+        payload: {
+            id
+        }
+    };
+}
+*/
+
+export const deleteEntry = (id) => {
+    return {
+        type: 'DELETE_ENTRY',
+        payload: {
+            id
+        }
+    };
+}
+
+
+//Profile actions

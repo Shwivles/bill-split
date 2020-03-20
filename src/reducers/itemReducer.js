@@ -18,6 +18,7 @@ const itemReducer = (state = data, action) => {
     switch(action.type) {
         case 'ADD_ENTRY': 
             const add_id = createId();
+            //FIX: id could be ordered in order making add_entry random
             return {
                 ...state,
                 [add_id]: {

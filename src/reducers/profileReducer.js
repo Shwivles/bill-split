@@ -4,15 +4,22 @@
 {
     input: '',
     selected: '',
-    profile: {
-        'jerry': [
-            {...},
-            {...}
-        ],
-        'kyla': [
-            {...}
-        ]
-    }
+    profile: [
+        {
+            name: 'jerry',
+            items: [
+                {...},
+                {...}
+            ]
+        },
+        {
+            name: 'kyla',
+            items: [
+                {...},
+                {...}
+            ]
+        }
+    ]
 }
 */
 const initialState = {
@@ -21,8 +28,36 @@ const initialState = {
     profile: []
 };
 
+
 const profileReducer = (state = initialState, action) => {
     switch(action.type) {
+        case 'UPDATE_INPUT':
+            const data = action.payload.input;
+            return {
+                ...state,
+                input: data
+            };
+
+        case 'ADD_PROFILE':
+            const newProfile = state.input;
+            return {
+                ...state,
+                input: '',
+                profile: [
+                    ...state.profile,
+                    {
+                        name: newProfile,
+                        items: []
+                    }
+                ]
+            };
+
+        case 'CHANGE_SELECTED':
+            return {
+                ...state,
+                selected: action.payload.selected
+            }
+
         default:
             return state;
     }

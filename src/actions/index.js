@@ -57,6 +57,16 @@ export const addProfile = () => {
     };
 }
 
+//change selected
+export const changeSelected = (selected) => {
+    return {
+        type: 'CHANGE_SELECTED',
+        payload: {
+            selected
+        }
+    }
+};
+
 //copy over an item from the item state into the profile
 export const addItemToProfile = (item, pId) => {
     return {

@@ -7,6 +7,7 @@ const data = {
     }
 };
 
+
 const createId = () => {
     const min = 1;
     const max = 399;
@@ -18,6 +19,7 @@ const itemReducer = (state = data, action) => {
     switch(action.type) {
         case 'ADD_ENTRY': 
             const add_id = createId();
+            //FIX: id could be ordered in order making add_entry random
             return {
                 ...state,
                 [add_id]: {
@@ -26,6 +28,7 @@ const itemReducer = (state = data, action) => {
                     quantity: 0
                 }
             };
+
         case 'HANDLE_ENTRY': 
             //action.payload.data = [string e.target.name, int e.target.value]
             const targetName = action.payload.data[0];
@@ -44,6 +47,10 @@ const itemReducer = (state = data, action) => {
             }
 
             return updatedData;
+
+            //case 'SUBMIT_ENTRY': //may not be needed
+
+            //case 'DELETE_ENTRY':
 
         default:
             return state;

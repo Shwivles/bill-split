@@ -16,3 +16,63 @@ export const handleEntry = (data, id) => {
         }
     };
 }
+
+/*
+export const submitEntry = (id) => {
+    return {
+        type: 'SUMBIT_ENTRY',
+        payload: {
+            id
+        }
+    };
+}
+*/
+
+export const deleteEntry = (id) => {
+    return {
+        type: 'DELETE_ENTRY',
+        payload: {
+            id
+        }
+    };
+}
+
+
+//Profile actions
+
+//update the input of the profile entry
+export const updateInput = (input) => {
+    return {
+        type:'UPDATE_INPUT',
+        payload: {
+            input
+        }
+    };
+}
+
+//bring input into the list and reset input
+export const addProfile = () => {
+    return {
+        type: 'ADD_PROFILE'
+    };
+}
+
+//change selected
+export const changeSelected = (selected) => {
+    return {
+        type: 'CHANGE_SELECTED',
+        payload: {
+            selected
+        }
+    }
+};
+
+//copy over an item from the item state into the profile
+export const addItemToProfile = (item) => {
+    return {
+        type: 'ADD_PROFILE_ITEM',
+        payload: {
+            item
+        }
+    };
+}

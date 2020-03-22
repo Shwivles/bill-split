@@ -4,28 +4,22 @@
 {
     input: '',
     selected: '',
-    profile: [
-        {
-            name: 'jerry',
-            items: [
-                {...},
-                {...}
-            ]
-        },
-        {
-            name: 'kyla',
-            items: [
-                {...},
-                {...}
-            ]
-        }
-    ]
+    profile: {
+        'jerry': [
+            {...},
+            {...}
+        ],
+        'kyla': [
+            {...},
+            {...}
+        ]
+    }
 }
 */
 const initialState = {
     input: '',
     selected: '',
-    profile: []
+    profile: {}
 };
 
 
@@ -40,16 +34,14 @@ const profileReducer = (state = initialState, action) => {
 
         case 'ADD_PROFILE':
             const newProfile = state.input;
+            console.log(newProfile);
             return {
                 ...state,
                 input: '',
-                profile: [
+                profile: {
                     ...state.profile,
-                    {
-                        name: newProfile,
-                        items: []
-                    }
-                ]
+                    [newProfile]: []
+                }
             };
 
         case 'ADD_PROFILE_ITEM':
@@ -57,16 +49,15 @@ const profileReducer = (state = initialState, action) => {
             //add in payload to the profiles items list
             const selected = state.selected;
             const itemData = action.payload.item;
+            console.log(itemData);
             const newState = {...state};
-            for (let i = 0; i < newState.profile.length; i++) {
-                if (selected === newState.profile[i].name) {
-                    newState.profile[i].items.push(itemData);
-                    break;
-                }
-            }
+            newState.profile[selected].push(itemData);
+            console.log(newState.profile);
             return newState;
 
         case 'CHANGE_SELECTED':
+            const test = action.payload.selected;
+            console.log(test);
             return {
                 ...state,
                 selected: action.payload.selected

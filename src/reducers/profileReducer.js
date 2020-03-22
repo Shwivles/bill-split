@@ -52,6 +52,20 @@ const profileReducer = (state = initialState, action) => {
                 ]
             };
 
+        case 'ADD_PROFILE_ITEM':
+            //search through state to find matching selected name/profile
+            //add in payload to the profiles items list
+            const selected = state.selected;
+            const itemData = action.payload.item;
+            const newState = {...state};
+            for (let i = 0; i < newState.profile.length; i++) {
+                if (selected === newState.profile[i].name) {
+                    newState.profile[i].items.push(itemData);
+                    break;
+                }
+            }
+            return newState;
+
         case 'CHANGE_SELECTED':
             return {
                 ...state,

@@ -20,6 +20,8 @@ function Profiles() {
         dispatch(updateInput(value));
     }
 
+    
+
     //map out users
     const userList = users.profile.map((person) => {
         return (

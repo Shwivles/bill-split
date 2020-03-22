@@ -19,7 +19,9 @@
 const initialState = {
     input: '',
     selected: '',
-    profile: {}
+    profile: {
+        '': []
+    }
 };
 
 

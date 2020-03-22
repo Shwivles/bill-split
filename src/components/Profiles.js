@@ -24,11 +24,13 @@ function Profiles() {
 
     //map out users
     const userList = Object.keys(users.profile).map((person) => {
-        return (
-            <div>
-                <button key={person} onClick={() => dispatch(changeSelected(person))}>{person}</button>
-            </div>
-        );
+        if (person !== '') {
+            return (
+                <div>
+                    <button key={person} onClick={() => dispatch(changeSelected(person))}>{person}</button>
+                </div>
+            );
+        }
     });
 
     return (

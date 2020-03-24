@@ -5,14 +5,20 @@
     input: '',
     selected: '',
     profile: {
-        'jerry': [
-            {...},
-            {...}
-        ],
-        'kyla': [
-            {...},
-            {...}
-        ]
+        'jerry': {
+            list: [
+                {...},
+                {...}
+            ],
+            total: 0
+        },
+        'kyla': {
+            list: [
+                {...},
+                {...}
+            ],
+            total: 0
+        }
     }
 }
 */
@@ -20,7 +26,10 @@ const initialState = {
     input: '',
     selected: '',
     profile: {
-        '': []
+        '': {
+            list: [],
+            total: 0
+        }
     }
 };
 
@@ -42,7 +51,10 @@ const profileReducer = (state = initialState, action) => {
                 input: '',
                 profile: {
                     ...state.profile,
-                    [newProfile]: []
+                    [newProfile]: {
+                        list: [],
+                        total: 0
+                    }
                 }
             };
 
@@ -53,7 +65,7 @@ const profileReducer = (state = initialState, action) => {
             const itemData = action.payload.item;
             console.log(itemData);
             const newState = {...state};
-            newState.profile[selected].push(itemData);
+            newState.profile[selected].list.push(itemData);
             console.log(newState.profile);
             return newState;
 

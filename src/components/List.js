@@ -19,7 +19,7 @@ function List() {
     //check if selected is equal to the profile key (every render?)
     //display profile list
     //PROBLEM: array does not exist at first render UNSAFE
-    const profileList = profileState.profile[profileState.selected].map((item) => {
+    const profileList = profileState.profile[profileState.selected].list.map((item) => {
         return (
             <li>
                 Item name: {item.name}, price: {item.price}, quantity: {item.quantity}

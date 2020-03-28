@@ -67,6 +67,12 @@ const profileReducer = (state = initialState, action) => {
             const newState = {...state};
             newState.profile[selected].list.push(itemData);
             console.log(newState.profile);
+
+            //creating total
+            let sum = parseFloat(state.profile[selected].total);
+            sum += parseFloat(itemData.price);
+            newState.profile[selected].total = sum;
+
             return newState;
 
         case 'CHANGE_SELECTED':

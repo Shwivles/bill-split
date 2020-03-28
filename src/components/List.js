@@ -27,12 +27,15 @@ function List() {
         );
     });
 
+    const total = profileState.profile[profileState.selected].total;
+
     return (
         <div>
             {profileState.selected === '' ?
                 <p>nothing in list or none added</p> :
                 <ul>
                     {profileList}
+                    <li>{total}</li>
                 </ul>
             }
         </div>

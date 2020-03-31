@@ -33,6 +33,7 @@ const initialState = {
     }
 };
 
+//TODO: create function to handle 
 
 const profileReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -65,10 +66,24 @@ const profileReducer = (state = initialState, action) => {
             const itemData = action.payload.item;
             console.log(itemData);
             const newState = {...state};
-            newState.profile[selected].list.push(itemData);
+            newState.profile[selected].list.push({
+                name: itemData.name,
+                price: itemData.price,
+                quantity: 1
+            });
             console.log(newState.profile);
 
+            //TODO:
+            /*
+            if item exists
+                find the selected and update quantity
+            if not exist
+                create new item into profile
+            */
+
+
             //creating total
+            //TODO: add in quantity to multiplication
             let sum = parseFloat(state.profile[selected].total);
             sum += parseFloat(itemData.price);
             newState.profile[selected].total = sum;

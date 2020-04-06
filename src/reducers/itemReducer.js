@@ -3,7 +3,8 @@ const data = {
     '000': {
         name: '',
         price: 0,
-        quantity: 0
+        quantity: 0,
+        added: []
     }
 };
 
@@ -25,7 +26,8 @@ const itemReducer = (state = data, action) => {
                 [add_id]: {
                     name: '',
                     price: 0,
-                    quantity: 0
+                    quantity: 0,
+                    added: []
                 }
             };
 

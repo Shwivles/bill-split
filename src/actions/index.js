@@ -17,16 +17,15 @@ export const handleEntry = (data, id) => {
     };
 }
 
-/*
-export const submitEntry = (id) => {
+export const updateEntry = (userName, id) => {
     return {
-        type: 'SUMBIT_ENTRY',
+        type: 'UPDATE_ENTRY',
         payload: {
+            userName,
             id
         }
     };
 }
-*/
 
 export const deleteEntry = (id) => {
     return {

@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addEntry, handleEntry, addItemToProfile, deleteEntry } from '../actions';
+import { addEntry, handleEntry, addItemToProfile, deleteEntry, updateEntry} from '../actions';
 
 function Item() { 
     const items = useSelector(state => state.itemReducer);
+    const user = useSelector(state => state.profileReducer);
     const dispatch = useDispatch();
 
     const handleChange = (e, idx) => {
@@ -18,8 +19,11 @@ function Item() {
     */
     const handleProfileAdd = (key) => {
         const billItem = {...items[key]};
+        const userName = user.selected;
+
+        console.log(user.selected);
         dispatch(addItemToProfile(billItem));
-        //TODO: add another dispatch using profile.selected into item 'added' list
+        dispatch(updateEntry(userName, key));
     }
 
     const entry = Object.keys(items).map((itemKey) => {

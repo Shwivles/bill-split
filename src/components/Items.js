@@ -19,6 +19,7 @@ function Item() {
     const handleProfileAdd = (key) => {
         const billItem = {...items[key]};
         dispatch(addItemToProfile(billItem));
+        //TODO: add another dispatch using profile.selected into item 'added' list
     }
 
     const entry = Object.keys(items).map((itemKey) => {

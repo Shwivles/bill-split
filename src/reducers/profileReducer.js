@@ -4,30 +4,36 @@
 {
     input: '',
     selected: '',
-    profile: [
-        {
-            name: 'jerry',
-            items: [
+    profile: {
+        'jerry': {
+            list: [
                 {...},
                 {...}
-            ]
+            ],
+            total: 0
         },
-        {
-            name: 'kyla',
-            items: [
+        'kyla': {
+            list: [
                 {...},
                 {...}
-            ]
+            ],
+            total: 0
         }
-    ]
+    }
 }
 */
 const initialState = {
     input: '',
     selected: '',
-    profile: []
+    profile: {
+        '': {
+            list: [],
+            total: 0
+        }
+    }
 };
 
+//TODO: create function to handle 
 
 const profileReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -40,16 +46,17 @@ const profileReducer = (state = initialState, action) => {
 
         case 'ADD_PROFILE':
             const newProfile = state.input;
+            console.log(newProfile);
             return {
                 ...state,
                 input: '',
-                profile: [
+                profile: {
                     ...state.profile,
-                    {
-                        name: newProfile,
-                        items: []
+                    [newProfile]: {
+                        list: [],
+                        total: 0
                     }
-                ]
+                }
             };
 
         case 'ADD_PROFILE_ITEM':
@@ -57,16 +64,35 @@ const profileReducer = (state = initialState, action) => {
             //add in payload to the profiles items list
             const selected = state.selected;
             const itemData = action.payload.item;
+            console.log(itemData);
             const newState = {...state};
-            for (let i = 0; i < newState.profile.length; i++) {
-                if (selected === newState.profile[i].name) {
-                    newState.profile[i].items.push(itemData);
-                    break;
-                }
-            }
+            newState.profile[selected].list.push({
+                name: itemData.name,
+                price: itemData.price,
+                quantity: 1
+            });
+            console.log(newState.profile);
+
+            //TODO:
+            /*
+            if item exists
+                find the selected and update quantity
+            if not exist
+                create new item into profile
+            */
+
+
+            //creating total
+            //TODO: add in quantity to multiplication
+            let sum = parseFloat(state.profile[selected].total);
+            sum += parseFloat(itemData.price);
+            newState.profile[selected].total = sum;
+
             return newState;
 
         case 'CHANGE_SELECTED':
+            const test = action.payload.selected;
+            console.log(test);
             return {
                 ...state,
                 selected: action.payload.selected

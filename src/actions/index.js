@@ -75,3 +75,24 @@ export const addItemToProfile = (item) => {
         }
     };
 }
+
+//use selected profile and use to delete from state
+//change state.selected into ''
+export const deleteProfile = (profileName) => {
+    return {
+        type: 'DELETE_PROFILE',
+        payload: {
+            profileName
+        } 
+    };
+}
+
+//use item idx in list to change state
+export const deleteProfileEntry = (listIdx) => {
+    return {
+        type: 'DELETE_PROFILE_ENTRY',
+        payload: {
+            listIdx
+        }
+    };
+}

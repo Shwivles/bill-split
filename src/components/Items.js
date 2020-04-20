@@ -19,11 +19,11 @@ function Item() {
     */
     const handleProfileAdd = (key) => {
         const billItem = {...items[key]};
-        const userName = user.selected;
+        //const userName = user.selected;
 
         console.log(user.selected);
         dispatch(addItemToProfile(billItem));
-        dispatch(updateEntry(userName, key));
+        //dispatch(updateEntry(userName, key));
     }
 
     const entry = Object.keys(items).map((itemKey) => {

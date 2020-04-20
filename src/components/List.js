@@ -9,20 +9,17 @@ adding a item will add it to the display
 function List() {
     const profileState = useSelector(state => state.profileReducer);
 
-    /*
-    useEffect(() => {
-        let selected = profileState.selected;
-        console.log('selected updated: ' + selected);
-    });
-    */
-
     //check if selected is equal to the profile key (every render?)
     //display profile list
     //PROBLEM: array does not exist at first render UNSAFE
-    const profileList = profileState.profile[profileState.selected].list.map((item) => {
+    //TODO: 
+    const profileList = profileState.profile[profileState.selected].list.map((item, idx) => {
         return (
-            <li>
-                Item name: {item.name}, price: {item.price}, quantity: {item.quantity}
+            <li key={idx}>
+                <div>
+                    Item name: {item.name}, price: {item.price}, quantity: {item.quantity}
+                </div>
+                <button>Delete</button>
             </li>
         );
     });

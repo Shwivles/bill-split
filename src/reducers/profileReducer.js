@@ -33,7 +33,6 @@ const initialState = {
     }
 };
 
-//TODO: create function to handle 
 
 const profileReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -83,7 +82,7 @@ const profileReducer = (state = initialState, action) => {
 
 
             //creating total
-            //TODO: add in quantity to multiplication
+            //TODO: add in quantity to divide between users
             let sum = parseFloat(state.profile[selected].total);
             sum += parseFloat(itemData.price);
             newState.profile[selected].total = sum;
@@ -96,7 +95,11 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 selected: action.payload.selected
-            }
+            };
+
+        case 'DELETE_PROFILE_ENTRY':
+            //TODO: handle delete 
+            return state;
 
         default:
             return state;

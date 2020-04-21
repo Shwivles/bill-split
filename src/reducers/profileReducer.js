@@ -98,8 +98,18 @@ const profileReducer = (state = initialState, action) => {
             };
 
         case 'DELETE_PROFILE_ENTRY':
-            //TODO: handle delete 
-            return state;
+            const idx = action.payload.listIdx;
+            const deletedState = {...state};
+            deletedState.profile[state.selected].list.splice(idx, 1);
+
+            let delSum = 0;
+            const listLength = deletedState.profile[state.selected].list.length;
+            for (let i = 0; i < listLength; i++) {
+                delSum += parseFloat(deletedState.profile[state.selected].list[i].price);
+            }
+            deletedState.profile[state.selected].total = delSum;
+
+            return deletedState;
 
         default:
             return state;

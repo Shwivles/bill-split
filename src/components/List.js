@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { deleteProfileEntry } from '../actions';
 
 /*
 display all items in selected profile list
@@ -8,6 +9,7 @@ adding a item will add it to the display
 */
 function List() {
     const profileState = useSelector(state => state.profileReducer);
+    const dispatch = useDispatch();
 
     //check if selected is equal to the profile key (every render?)
     //display profile list
@@ -19,7 +21,7 @@ function List() {
                 <div>
                     Item name: {item.name}, price: {item.price}, quantity: {item.quantity}
                 </div>
-                <button>Delete</button>
+                <button onClick={() => dispatch(deleteProfileEntry(idx))}>Delete</button>
             </li>
         );
     });

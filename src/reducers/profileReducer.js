@@ -33,7 +33,6 @@ const initialState = {
     }
 };
 
-//TODO: create function to handle 
 
 const profileReducer = (state = initialState, action) => {
     switch(action.type) {
@@ -83,7 +82,7 @@ const profileReducer = (state = initialState, action) => {
 
 
             //creating total
-            //TODO: add in quantity to multiplication
+            //TODO: add in quantity to divide between users
             let sum = parseFloat(state.profile[selected].total);
             sum += parseFloat(itemData.price);
             newState.profile[selected].total = sum;
@@ -96,7 +95,28 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 selected: action.payload.selected
+            };
+
+        case 'DELETE_PROFILE_ENTRY':
+            const idx = action.payload.listIdx;
+            const deletedState = {...state};
+            deletedState.profile[state.selected].list.splice(idx, 1);
+
+            let delSum = 0;
+            const listLength = deletedState.profile[state.selected].list.length;
+            for (let i = 0; i < listLength; i++) {
+                delSum += parseFloat(deletedState.profile[state.selected].list[i].price);
             }
+            deletedState.profile[state.selected].total = delSum;
+
+            return deletedState;
+
+        case 'DELETE_PROFILE':
+            const profileName = action.payload.profileName;
+            const profileDeleteState = {...state};
+            delete profileDeleteState.profile[profileName];
+
+            return profileDeleteState;
 
         default:
             return state;

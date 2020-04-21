@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { deleteProfileEntry } from '../actions';
 
 /*
 display all items in selected profile list
@@ -8,21 +9,19 @@ adding a item will add it to the display
 */
 function List() {
     const profileState = useSelector(state => state.profileReducer);
-
-    /*
-    useEffect(() => {
-        let selected = profileState.selected;
-        console.log('selected updated: ' + selected);
-    });
-    */
+    const dispatch = useDispatch();
 
     //check if selected is equal to the profile key (every render?)
     //display profile list
     //PROBLEM: array does not exist at first render UNSAFE
-    const profileList = profileState.profile[profileState.selected].list.map((item) => {
+    //TODO: 
+    const profileList = profileState.profile[profileState.selected].list.map((item, idx) => {
         return (
-            <li>
-                Item name: {item.name}, price: {item.price}, quantity: {item.quantity}
+            <li key={idx}>
+                <div>
+                    Item name: {item.name}, price: {item.price}, quantity: {item.quantity}
+                </div>
+                <button onClick={() => dispatch(deleteProfileEntry(idx))}>Delete</button>
             </li>
         );
     });

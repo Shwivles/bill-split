@@ -4,6 +4,7 @@ const data = {
         name: '',
         price: 0,
         quantity: 0
+        //added: []
     }
 };
 
@@ -48,9 +49,20 @@ const itemReducer = (state = data, action) => {
 
             return updatedData;
 
-            //case 'SUBMIT_ENTRY': //may not be needed
+            case 'UPDATE_ENTRY':
+                const updatedState = {...state};
+                const itemToUpdate = action.payload.id;
+                updatedState[itemToUpdate].added.push(action.payload.userName);
 
-            //case 'DELETE_ENTRY':
+
+                console.log(updatedState[itemToUpdate].added)
+                return updatedState;
+
+            case 'DELETE_ENTRY':
+                const toDelete = action.payload.id;
+                const deleteState = {...state};
+                delete deleteState[toDelete];
+                return deleteState;
 
         default:
             return state;

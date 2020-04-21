@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateInput, addProfile, changeSelected } from '../actions';
+import { updateInput, addProfile, changeSelected, deleteProfile } from '../actions';
 
 function Profiles() {
     /*
@@ -28,6 +28,7 @@ function Profiles() {
             return (
                 <div>
                     <button key={person} onClick={() => dispatch(changeSelected(person))}>{person}</button>
+                    <button onClick={() => dispatch(deleteProfile(person))}>Delete</button>
                 </div>
             );
         }

@@ -17,16 +17,15 @@ export const handleEntry = (data, id) => {
     };
 }
 
-/*
-export const submitEntry = (id) => {
+export const updateEntry = (userName, id) => {
     return {
-        type: 'SUMBIT_ENTRY',
+        type: 'UPDATE_ENTRY',
         payload: {
+            userName,
             id
         }
     };
 }
-*/
 
 export const deleteEntry = (id) => {
     return {
@@ -73,6 +72,27 @@ export const addItemToProfile = (item) => {
         type: 'ADD_PROFILE_ITEM',
         payload: {
             item
+        }
+    };
+}
+
+//use selected profile and use to delete from state
+//change state.selected into ''
+export const deleteProfile = (profileName) => {
+    return {
+        type: 'DELETE_PROFILE',
+        payload: {
+            profileName
+        } 
+    };
+}
+
+//use item idx in list to change state
+export const deleteProfileEntry = (listIdx) => {
+    return {
+        type: 'DELETE_PROFILE_ENTRY',
+        payload: {
+            listIdx
         }
     };
 }

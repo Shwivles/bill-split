@@ -57,7 +57,11 @@ const itemReducer = (state = data, action) => {
 
                 console.log(updatedState[itemToUpdate].added)
                 return updatedState;
-            //case 'DELETE_ENTRY':
+            case 'DELETE_ENTRY':
+                const toDelete = action.payload.id;
+                const deleteState = {...state};
+                delete deleteState[toDelete];
+                return deleteState;
 
         default:
             return state;

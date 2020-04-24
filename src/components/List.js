@@ -5,6 +5,8 @@ import { deleteProfileEntry } from '../actions';
 //bootstrap
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 /*
 display all items in selected profile list
@@ -35,7 +37,7 @@ function List() {
     const total = profileState.profile[profileState.selected].total;
 
     return (
-        <div>
+        <Container>
             {profileState.selected === '' ?
                 <p>nothing in list or none added</p> :
                 <ListGroup variant="flush">
@@ -43,7 +45,7 @@ function List() {
                     <ListGroup.Item>Total: ${total}</ListGroup.Item>
                 </ListGroup>
             }
-        </div>
+        </Container>
     );
 }
 

@@ -2,6 +2,14 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateInput, addProfile, changeSelected, deleteProfile } from '../actions';
 
+//bootstrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+
 function Profiles() {
     /*
         grab item state
@@ -35,15 +43,36 @@ function Profiles() {
     });
 
     return (
-        <div>
-            <div className='users'>
-                {userList}
-            </div>
-            <div className='profile-input'>
-                <input type='text' onChange={(e) => handleChange(e.target.value) } name='profile-name' value={users.input} />
-                <button type='submit' onClick={() => dispatch(addProfile())} >Add user</button>
-            </div>
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                    <div className='users'>
+                        {userList}
+                    </div>
+
+                </Col>
+                 
+            </Row>
+            <Row>
+                <Col>
+
+                <div className='profile-input'>
+                    <InputGroup className="mt-3 mb-3">
+                        <FormControl 
+                            type="text"
+                            onChange={(e) => handleChange(e.target.value)} 
+                            placeholder="Enter a user's name"
+                            name="profile-name"
+                            value={users.input}
+                        /> 
+
+                        <Button variant="success" onClick={() => dispatch(addProfile())} >Add user</Button>
+                    </InputGroup>
+                </div>
+
+                </Col>
+            </Row>
+        </Container>
     );
 }
 

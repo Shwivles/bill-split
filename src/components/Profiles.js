@@ -9,6 +9,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 function Profiles() {
     /*
@@ -28,30 +29,38 @@ function Profiles() {
         dispatch(updateInput(value));
     }
 
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            dispatch(addProfile());
+        }
+    }
+
     
 
     //map out users
     const userList = Object.keys(users.profile).map((person) => {
         if (person !== '') {
             return (
-                <div>
-                    <button key={person} onClick={() => dispatch(changeSelected(person))}>{person}</button>
-                    <button onClick={() => dispatch(deleteProfile(person))}>Delete</button>
-                </div>
+
+                <Col className="mb-2">
+                    <ButtonGroup size="lg" vertical>
+                        <Button variant="secondary" key={person} onClick={() => dispatch(changeSelected(person))}>{person}</Button>
+                            
+                        <Button variant="danger" onClick={() => dispatch(deleteProfile(person))}>Delete</Button>
+
+                    </ButtonGroup>
+                    
+                </Col>
+
+
             );
         }
     });
 
     return (
         <Container>
-            <Row>
-                <Col>
-                    <div className='users'>
-                        {userList}
-                    </div>
-
-                </Col>
-                 
+            <Row className="mt-3 users">
+                {userList}
             </Row>
             <Row>
                 <Col>
@@ -64,9 +73,10 @@ function Profiles() {
                             placeholder="Enter a user's name"
                             name="profile-name"
                             value={users.input}
+                            onKeyPress={(e) => handleKeyPress(e)}
                         /> 
 
-                        <Button variant="success" onClick={() => dispatch(addProfile())} >Add user</Button>
+                        <Button variant="success" onClick={() => dispatch(addProfile())}>Add user</Button>
                     </InputGroup>
                 </div>
 

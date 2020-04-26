@@ -43,18 +43,25 @@ function Profiles() {
             return (
 
                 <Col className="mb-2">
-                    <ButtonGroup size="lg" vertical>
-                        <Button variant="secondary" key={person} onClick={() => dispatch(changeSelected(person))}>{person}</Button>
+                    
+                    <div className="d-flex justify-content-center">
+                        <ButtonGroup size="lg" vertical>
+                            <Button size="lg" variant="secondary" key={person} onClick={() => dispatch(changeSelected(person))}>{person}</Button>
                             
-                        <Button variant="danger" onClick={() => dispatch(deleteProfile(person))}>Delete</Button>
+                            <Button size="lg" variant="danger" onClick={() => dispatch(deleteProfile(person))}>Delete</Button>
 
-                    </ButtonGroup>
+
+                        </ButtonGroup>
+                    </div>
+                    
+
                     
                 </Col>
 
 
             );
         }
+        
     });
 
     return (

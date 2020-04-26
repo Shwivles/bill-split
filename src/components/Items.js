@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addEntry, handleEntry, addItemToProfile, deleteEntry, updateEntry} from '../actions';
+import { addEntry, handleEntry, addItemToProfile, deleteEntry} from '../actions';
 
 //bootstrap
 import Button from 'react-bootstrap/Button';
@@ -103,6 +103,7 @@ function Item() {
                             <Button variant="danger" onClick={() => dispatch(deleteEntry(itemKey))}>Delete</Button>
                         </Col>
                     </Row>
+                   
                 </Container>
             </div>   
         );
@@ -113,11 +114,12 @@ function Item() {
             {entry}
             <Container>
                 <Row>
-                    <Col></Col>
                     <Col>
-                        <Button variant="primary" onClick={() => dispatch(addEntry())}>Add more items</Button>
+                        <div className="d-flex justify-content-center" >
+
+                            <Button variant="primary" onClick={() => dispatch(addEntry())}>Add more items</Button>
+                        </div>
                     </Col>
-                    <Col></Col>
                 </Row>
             </Container>
         </div>

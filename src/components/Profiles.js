@@ -54,8 +54,6 @@ function Profiles() {
                         </ButtonGroup>
                     </div>
                     
-
-                    
                 </Col>
 
 

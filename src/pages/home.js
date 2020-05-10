@@ -3,6 +3,7 @@ import List from '../components/List';
 import Item from '../components/Items';
 import Profiles from '../components/Profiles';
 import Navi from '../components/Navi';
+import Jumbo from '../components/Jumbo';
 
 //bootstrap
 import Container from 'react-bootstrap/Container';
@@ -15,6 +16,7 @@ function Home() {
 
         <Navi />
         <Container>
+
             <br />
             <Row>
                 <Item />

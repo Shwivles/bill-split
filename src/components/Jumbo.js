@@ -1,10 +1,13 @@
 import React from 'react';
 
+//bootstrap
+import Jumbotron from 'react-bootstrap/Jumbotron';
+
 const Jumbo = () => {
     return (
-        <div>
-            This is a jumbotron
-        </div>
+        <Jumbotron>
+            <h1>Bill split app</h1>
+        </Jumbotron>
     );
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //bootstrap
 import Navbar from 'react-bootstrap/Navbar';
@@ -11,10 +12,15 @@ function Navi() {
             <Navbar.Brand>photo</Navbar.Brand>
             <Nav>
                 <Nav.Item as="li">
-                    <Nav.Link href="/home">Home</Nav.Link>
+                    <Nav.Link>
+                        <Link to="/">Home</Link>
+                    
+                    </Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li">
-                    <Nav.Link href="#">How to Use</Nav.Link>
+                    <Nav.Link>
+                        <Link to="/app">App</Link>     
+                    </Nav.Link>
                 </Nav.Item>
             </Nav>
         </Navbar>

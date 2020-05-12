@@ -10,17 +10,12 @@ function Navi() {
     return (
         <Navbar bg="light" variant="light">
             <Navbar.Brand>photo</Navbar.Brand>
-            <Nav>
+            <Nav as="ul">
                 <Nav.Item as="li">
-                    <Nav.Link>
-                        <Link to="/">Home</Link>
-                    
-                    </Nav.Link>
+                    <Nav.Link as={Link} to="/">Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item as="li">
-                    <Nav.Link>
-                        <Link to="/app">App</Link>     
-                    </Nav.Link>
+                    <Nav.Link as={Link} to="/app">App</Nav.Link>
                 </Nav.Item>
             </Nav>
         </Navbar>

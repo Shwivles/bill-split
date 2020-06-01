@@ -13,7 +13,7 @@ function Info() {
                 <Col>
                     <h4>Entering reciept items</h4>
                     <p>Enter reciept items into the inputs.</p>
-                    <p>Enter a number greater than 0 if an item is to be shared (number is the amound of people sharing).</p>
+                    <p>Enter a number greater than 0 if an item is to be shared (number is the amount of people sharing).</p>
                     <p>Click the add more items button to create more inputs</p>
                 </Col>
                 <Col>

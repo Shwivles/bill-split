@@ -64,27 +64,31 @@ const profileReducer = (state = initialState, action) => {
             const selected = state.selected;
             const itemData = action.payload.item;
             console.log(itemData);
+
             const newState = {...state};
-            newState.profile[selected].list.push({
-                name: itemData.name,
-                price: itemData.price,
-                quantity: 1
-            });
+            let sum = parseFloat(state.profile[selected].total);
+
+            //handling shared items
+            if (itemData.quantity >= 1) {
+                const calculatedPrice = parseFloat(itemData.price) / parseInt(itemData.quantity);
+                newState.profile[selected].list.push({
+                    name: itemData.name,
+                    price: calculatedPrice,
+                    quantity: 1
+                });
+
+                sum += parseFloat(calculatedPrice);
+            } else {
+                newState.profile[selected].list.push({
+                    name: itemData.name,
+                    price: itemData.price,
+                    quantity: 1
+                });
+
+                sum += parseFloat(itemData.price);
+            }
             console.log(newState.profile);
 
-            //TODO:
-            /*
-            if item exists
-                find the selected and update quantity
-            if not exist
-                create new item into profile
-            */
-
-
-            //creating total
-            //TODO: add in quantity to divide between users
-            let sum = parseFloat(state.profile[selected].total);
-            sum += parseFloat(itemData.price);
             newState.profile[selected].total = sum;
 
             return newState;

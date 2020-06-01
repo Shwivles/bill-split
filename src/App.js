@@ -1,11 +1,31 @@
 import React from 'react';
-import Home from './pages/home';
+import AppPage from './pages/AppPage';
+import Landing from './pages/landing';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+  } from "react-router-dom";
 
 function App() {
     return (
-        <div className="App">
-            <Home />
-        </div>
+        <Router>
+
+            <div className="App">
+                <Switch>
+                    <Route path="/app">
+                        <AppPage /> 
+                    </Route>
+
+                    <Route path="/">
+                        <Landing />
+                    </Route>
+                </Switch>
+            </div>
+
+        </Router>
     );
 }
 

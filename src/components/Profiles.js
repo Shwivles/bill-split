@@ -2,6 +2,15 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateInput, addProfile, changeSelected, deleteProfile } from '../actions';
 
+//bootstrap
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import FormControl from 'react-bootstrap/FormControl';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+
 function Profiles() {
     /*
         grab item state
@@ -20,30 +29,65 @@ function Profiles() {
         dispatch(updateInput(value));
     }
 
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            dispatch(addProfile());
+        }
+    }
+
     
 
     //map out users
     const userList = Object.keys(users.profile).map((person) => {
         if (person !== '') {
             return (
-                <div>
-                    <button key={person} onClick={() => dispatch(changeSelected(person))}>{person}</button>
-                    <button onClick={() => dispatch(deleteProfile(person))}>Delete</button>
-                </div>
+
+                <Col className="mb-2">
+                    
+                    <div className="d-flex justify-content-center">
+                        <ButtonGroup size="lg" vertical>
+                            <Button size="lg" variant="secondary" key={person} onClick={() => dispatch(changeSelected(person))}>{person}</Button>
+                            
+                            <Button size="lg" variant="danger" onClick={() => dispatch(deleteProfile(person))}>Delete</Button>
+
+
+                        </ButtonGroup>
+                    </div>
+                    
+                </Col>
+
+
             );
         }
+        
     });
 
     return (
-        <div>
-            <div className='users'>
+        <Container>
+            <Row className="mt-3 users">
                 {userList}
-            </div>
-            <div className='profile-input'>
-                <input type='text' onChange={(e) => handleChange(e.target.value) } name='profile-name' value={users.input} />
-                <button type='submit' onClick={() => dispatch(addProfile())} >Add user</button>
-            </div>
-        </div>
+            </Row>
+            <Row>
+                <Col>
+
+                <div className='profile-input'>
+                    <InputGroup className="mt-3 mb-3">
+                        <FormControl 
+                            type="text"
+                            onChange={(e) => handleChange(e.target.value)} 
+                            placeholder="Enter a user's name"
+                            name="profile-name"
+                            value={users.input}
+                            onKeyPress={(e) => handleKeyPress(e)}
+                        /> 
+
+                        <Button variant="success" onClick={() => dispatch(addProfile())}>Add user</Button>
+                    </InputGroup>
+                </div>
+
+                </Col>
+            </Row>
+        </Container>
     );
 }
 

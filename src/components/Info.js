@@ -8,7 +8,7 @@ import Row from 'react-bootstrap/Row';
 
 function Info() {
     return (
-        <Container>
+        <Container as="section">
             <Row>
                 <Col>
                     <h4>Entering reciept items</h4>

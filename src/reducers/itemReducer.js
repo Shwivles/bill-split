@@ -1,6 +1,6 @@
 //reducer for items state
 const data = {
-    '000': {
+    '0': {
         name: '',
         price: 0,
         quantity: 0
@@ -9,17 +9,20 @@ const data = {
 };
 
 
-const createId = () => {
-    const min = 1;
-    const max = 399;
-    const key = Math.floor(Math.random() * (max - min)) + min;
+let counter = 1;
+
+const createId = (count) => {
+    //const key = Math.floor(Math.random() * (max - min)) + min;
+    const key = counter;
+    ++counter;
+
     return key;
 }
 
 const itemReducer = (state = data, action) => {
     switch(action.type) {
         case 'ADD_ENTRY': 
-            const add_id = createId();
+            const add_id = createId(counter);
             //FIX: id could be ordered in order making add_entry random
             return {
                 ...state,

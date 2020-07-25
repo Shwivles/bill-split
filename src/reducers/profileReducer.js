@@ -119,6 +119,18 @@ const profileReducer = (state = initialState, action) => {
             const profileName = action.payload.profileName;
             const profileDeleteState = {...state};
             delete profileDeleteState.profile[profileName];
+            profileDeleteState.selected = '';
+
+            /*
+            if (!profileDeleteState.profile) {
+                profileDeleteState.profile = {
+                    '': {
+                        list: [],
+                        total: 0
+                    }
+                }
+            }
+            */
 
             return profileDeleteState;
 

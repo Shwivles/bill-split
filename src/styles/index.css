@@ -13,7 +13,10 @@ code {
 }
 
 @media (max-width: 480px) {
-  .test {
+  .seperate {
     margin-bottom: 20px !important;
   }
-}
+
+ }
+
+ 

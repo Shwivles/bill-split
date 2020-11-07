@@ -7,8 +7,8 @@ import Button from 'react-bootstrap/Button';
 
 const Jumbo = () => {
     return (
-        <Jumbotron as="section" className="d-flex justify-content-center">
-            <div style={{width: '50%'}}>
+        <Jumbotron as="section">
+            <div>
 
             <h1>Bill split app</h1>
             <p >An app used to calculate your bill</p>

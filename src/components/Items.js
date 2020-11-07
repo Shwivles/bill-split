@@ -38,7 +38,7 @@ function Item() {
         return (
             <div className='item-data'>
                 <Container>
-                    <Row>
+                    <Row xs={{cols: 1}} className="test">
                         <Col>
                             <InputGroup className="mb-3">
                             

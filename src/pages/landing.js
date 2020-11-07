@@ -11,8 +11,11 @@ function Landing() {
         <div>
             <Navi />
 
-            <Jumbo />
-            <Info />
+            <main>
+                <Jumbo />
+                <Info />
+            </main>
+            
         </div>
     );
 }

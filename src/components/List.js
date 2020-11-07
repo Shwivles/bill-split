@@ -38,7 +38,7 @@ function List() {
     return (
         <Container>
             {profileState.selected === '' ?
-                <p>nothing in list or none added</p> :
+                <p>Nothing in list or none added</p> :
                 <ListGroup variant="flush">
                     <ListGroup.Item><h4>{profileState.selected}'s Items:</h4></ListGroup.Item>
                     {profileList}

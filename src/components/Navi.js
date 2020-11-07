@@ -9,7 +9,9 @@ function Navi() {
     
     return (
         <Navbar bg="light" variant="light">
-            <Navbar.Brand>photo</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/">
+                BSA
+            </Navbar.Brand>
             <Nav as="ul">
                 <Nav.Item as="li">
                     <Nav.Link as={Link} to="/">Home</Nav.Link>
